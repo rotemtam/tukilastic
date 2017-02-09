@@ -1,6 +1,4 @@
 # tukilastic
-
-# tukilastic
 --
     import "github.com/rotemtam/tukilastic"
 
