@@ -1,7 +1,6 @@
 package tukilastic
 
 import (
-	"github.com/apex/log"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/elasticsearchservice"
@@ -14,8 +13,6 @@ func newClient(url string, sniff bool, awsRegion string) (*elastic.Client, error
 	ses := session.New(&aws.Config{Region: aws.String(awsRegion)})
 
 	transport := signer.NewTransport(ses, elasticsearchservice.ServiceName)
-	ctxLogger := log.WithField("requestID", "1234")
-	transport.Logger = ctxLogger
 
 	httpClient := &http.Client{
 		Transport: transport,
